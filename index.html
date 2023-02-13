@@ -28,7 +28,37 @@
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form"></div>
+    <div data-view="entry-form">
+      <h1>New Entry</h1>
+      <form action="">
+        <div>
+          <img src="images/placeholder-image-square.jpg" alt="placeholder">
+        </div>
+        <div>
+          <div>
+            <label for="title">Title</label>
+          </div>
+          <div>
+            <input type="text" id="title" name="title">
+          </div>
+          <div>
+            <label for="url">Photo URL</label>
+          </div>
+          <div>
+            <input type="text" id="url" name="url">
+          </div>
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+        </div>
+        <div>
+          <textarea name="notes" id="notes" cols="40" rows="10"></textarea>
+        </div>
+        <div>
+          <button class="white-open-sans">SAVE</button>
+        </div>
+      </form>
+    </div>
     <div data-view="entries" class="hidden"></div>
   </main>
   <script src="js/data.js"></script>

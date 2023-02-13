@@ -1,9 +1,31 @@
+body {
+  background-color: rgb(240, 240, 240);
+}
+
 header {
   background-color: rgb(86, 43, 129);
 }
 
 h3 {
   margin: 0;
+}
+
+h1,
+label {
+  font-family: "Proza Libre", sans-serif;
+  font-weight: bold;
+}
+
+textarea,
+input {
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 3px;
+}
+
+button {
+  background-color: rgb(86, 43, 129);
+  border: none;
+  border-radius: 3px;
 }
 
 .white-open-sans {
