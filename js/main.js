@@ -4,7 +4,7 @@ var $photoUrl = document.querySelector('#url');
 var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var $ul = document.querySelector('ul');
-var $header = document.querySelector('header');
+var $body = document.querySelector('body');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
     var itemInEntries = renderEntry(data.entries[i]);
     $ul.appendChild(itemInEntries);
   }
+  viewSwap(data.view);
+  toggleNoEntries();
 });
 
 var $noEntries = document.querySelector('#no-entries');
@@ -91,4 +93,13 @@ function viewSwap(viewName) {
   }
 }
 
-$header.addEventListener('click', viewSwap);
+var $entriesAnchor = document.querySelector('#entries-anchor');
+var $newButton = document.querySelector('#new-button');
+
+$body.addEventListener('click', function (event) {
+  if (event.target === $entriesAnchor) {
+    viewSwap('entries');
+  } else if (event.target === $newButton) {
+    viewSwap('entry-form');
+  }
+});
