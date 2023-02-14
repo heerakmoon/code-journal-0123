@@ -39,6 +39,16 @@ img {
   object-fit: cover;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 20px 0;
+}
+
 .white-open-sans {
   color: white;
   font-family: "Open Sans", sans-serif;
@@ -86,7 +96,16 @@ img {
 }
 
 @media screen and (min-width: 768px) {
+  h2 {
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 40px;
+  }
+
   img {
+    max-height: 500px;
     height: 100%;
   }
 
