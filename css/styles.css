@@ -1,6 +1,6 @@
 body {
   background-color: rgb(240, 240, 240);
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 header {
@@ -13,6 +13,7 @@ h5 {
 }
 
 h1,
+h2,
 label {
   font-family: "Proza Libre", sans-serif;
   font-weight: bold;
