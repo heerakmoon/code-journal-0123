@@ -62,10 +62,25 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 // var $noEntries = document.querySelector('#no-entries');
 
-// function toggleNoEntries () {
+// function toggleNoEntries() {
 //   if (data.entries !== null) {
 //     $noEntries.className = 'hidden';
 //   } else {
 //     $noEntries.className = '';
+//   }
+// }
+
+// var $entryForm = document.querySelector('#entry-form');
+// var $entries = document.querySelector('#entries');
+
+// function viewSwap(viewName) {
+//   if (viewName === 'entry-form') {
+//     $entryForm.className = '';
+//     $entries.className = 'hidden';
+//     data.view = 'entry-form';
+//   } else if (viewName === 'entries') {
+//     $entryForm.className = 'hidden';
+//     $entries.className = '';
+//     data.view = 'entries';
 //   }
 // }
