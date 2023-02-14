@@ -20,12 +20,13 @@ $form.addEventListener('submit', function (e) {
   };
   data.nextEntryId++;
   data.entries.unshift(formObj);
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
 
   var newEntry = renderEntry(formObj);
   $ul.prepend(newEntry);
-
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
+  viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
@@ -65,15 +66,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
   }
 });
 
-// var $noEntries = document.querySelector('#no-entries');
+var $noEntries = document.querySelector('#no-entries');
 
-// function toggleNoEntries() {
-//   if (data.entries !== null) {
-//     $noEntries.className = 'hidden';
-//   } else {
-//     $noEntries.className = '';
-//   }
-// }
+function toggleNoEntries() {
+  if (data.entries !== null) {
+    $noEntries.className = 'hidden';
+  } else {
+    $noEntries.className = '';
+  }
+}
 
 var $entryForm = document.querySelector('#entry-form');
 var $entries = document.querySelector('#entries');
