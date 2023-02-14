@@ -59,3 +59,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
     $ul.appendChild(itemInEntries);
   }
 });
+
+// var $noEntries = document.querySelector('#no-entries');
+
+// function toggleNoEntries () {
+//   if (data.entries !== null) {
+//     $noEntries.className = 'hidden';
+//   } else {
+//     $noEntries.className = '';
+//   }
+// }
