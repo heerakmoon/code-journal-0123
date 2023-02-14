@@ -7,7 +7,8 @@ header {
   background-color: rgb(86, 43, 129);
 }
 
-h3 {
+h3,
+h5 {
   margin: 0;
 }
 
@@ -60,12 +61,28 @@ img {
   margin: 20px 0;
 }
 
+.margin-20-l-r {
+  margin: 0 20px;
+}
+
 .margin-25 {
   margin: 25px 0;
 }
 
 .button-right {
   text-align: right;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 768px) {
