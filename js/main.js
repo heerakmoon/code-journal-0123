@@ -4,6 +4,7 @@ var $photoUrl = document.querySelector('#url');
 var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var $ul = document.querySelector('ul');
+var $header = document.querySelector('header');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -70,17 +71,19 @@ document.addEventListener('DOMContentLoaded', function (e) {
 //   }
 // }
 
-// var $entryForm = document.querySelector('#entry-form');
-// var $entries = document.querySelector('#entries');
+var $entryForm = document.querySelector('#entry-form');
+var $entries = document.querySelector('#entries');
 
-// function viewSwap(viewName) {
-//   if (viewName === 'entry-form') {
-//     $entryForm.className = '';
-//     $entries.className = 'hidden';
-//     data.view = 'entry-form';
-//   } else if (viewName === 'entries') {
-//     $entryForm.className = 'hidden';
-//     $entries.className = '';
-//     data.view = 'entries';
-//   }
-// }
+function viewSwap(viewName) {
+  if (viewName === 'entry-form') {
+    $entryForm.className = '';
+    $entries.className = 'hidden';
+    data.view = 'entry-form';
+  } else if (viewName === 'entries') {
+    $entryForm.className = 'hidden';
+    $entries.className = '';
+    data.view = 'entries';
+  }
+}
+
+$header.addEventListener('click', viewSwap);

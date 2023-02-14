@@ -50,6 +50,10 @@ p {
   margin: 20px 0;
 }
 
+a {
+  padding: 10px 0;
+}
+
 .white-open-sans {
   color: white;
   font-family: "Open Sans", sans-serif;
