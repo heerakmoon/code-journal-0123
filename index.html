@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
   <link
     rel="stylesheet"
@@ -18,10 +24,47 @@
 <body>
   <header>
     <div class="container">
+      <h3 class="white-open-sans padding-20">Code Journal</h3>
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form"></div>
+    <div data-view="entry-form">
+      <h1>New Entry</h1>
+      <form action="">
+        <div class="row">
+          <div class="column-half padding-r-12 img-margin-bot">
+            <img src="images/placeholder-image-square.jpg" alt="placeholder">
+          </div>
+          <div class="column-half padding-l-12">
+            <div>
+              <div class="margin-5">
+                <label for="title">Title</label>
+              </div>
+              <div class="margin-5">
+                <input type="text" id="title" name="title" required>
+              </div>
+            </div>
+            <div class="margin-25">
+              <div class="margin-5">
+                <label for="url">Photo URL</label>
+              </div>
+              <div class="margin-5">
+                <input type="text" id="url" name="url" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+        </div>
+        <div class="margin-5">
+          <textarea name="notes" id="notes" cols="40" rows="10" required></textarea>
+        </div>
+        <div class="button-right margin-20">
+          <button class="white-open-sans">SAVE</button>
+        </div>
+      </form>
+    </div>
     <div data-view="entries" class="hidden"></div>
   </main>
   <script src="js/data.js"></script>
