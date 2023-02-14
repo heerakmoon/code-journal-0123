@@ -20,6 +20,10 @@ $form.addEventListener('submit', function (e) {
   };
   data.nextEntryId++;
   data.entries.unshift(formObj);
+
+  var newEntry = renderEntry(formObj);
+  $ul.prepend(newEntry);
+
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 });
