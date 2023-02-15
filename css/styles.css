@@ -68,6 +68,10 @@ i {
   color: rgb(86, 43, 129);
 }
 
+i:hover {
+  cursor: pointer;
+}
+
 .white-open-sans {
   color: white;
   font-family: "Open Sans", sans-serif;

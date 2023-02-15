@@ -112,3 +112,16 @@ $body.addEventListener('click', function (event) {
     viewSwap('entry-form');
   }
 });
+
+$ul.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+    var liId = event.target.parentNode.getAttribute('id') * 1;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i.entryId] === liId) {
+        data.editing = data.entries[i];
+      }
+    }
+  }
+
+});
