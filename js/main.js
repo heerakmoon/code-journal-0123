@@ -19,15 +19,19 @@ $form.addEventListener('submit', function (e) {
     notes: $notes.value,
     entryId: data.nextEntryId
   };
-  data.nextEntryId++;
-  data.entries.unshift(formObj);
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
 
-  var newEntry = renderEntry(formObj);
-  $ul.prepend(newEntry);
-  viewSwap('entries');
-  toggleNoEntries();
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(formObj);
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $form.reset();
+
+    var newEntry = renderEntry(formObj);
+    $ul.prepend(newEntry);
+    viewSwap('entries');
+    toggleNoEntries();
+
+  }
 });
 
 function renderEntry(entry) {
@@ -117,7 +121,6 @@ $body.addEventListener('click', function (event) {
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
-    // debugger;
     var liId = event.target.closest('li').getAttribute('id') * 1;
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === liId) {
@@ -131,5 +134,4 @@ $ul.addEventListener('click', function (event) {
 
     $h1.textContent = 'Edit Entry';
   }
-
 });
