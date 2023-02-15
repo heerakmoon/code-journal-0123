@@ -5,6 +5,7 @@ var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var $ul = document.querySelector('ul');
 var $body = document.querySelector('body');
+var $h1 = document.querySelector('h1');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -18,19 +19,38 @@ $form.addEventListener('submit', function (e) {
     notes: $notes.value,
     entryId: data.nextEntryId
   };
-  data.nextEntryId++;
-  data.entries.unshift(formObj);
+
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(formObj);
+
+    var newEntry = renderEntry(formObj);
+    $ul.prepend(newEntry);
+
+  } else if (data.editing !== null) {
+    formObj.entryId = data.editing.entryId;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === formObj.entryId) {
+        data.entries[i] = formObj;
+      }
+    }
+    var editedObj = renderEntry(formObj);
+    var $originalLi = document.getElementById(data.editing.entryId);
+
+    $originalLi.replaceWith(editedObj);
+
+    $h1.textContent = 'New Entry';
+    data.editing = null;
+  }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
-
-  var newEntry = renderEntry(formObj);
-  $ul.prepend(newEntry);
   viewSwap('entries');
   toggleNoEntries();
 });
 
 function renderEntry(entry) {
   var $li = document.createElement('li');
+  $li.setAttribute('id', entry.entryId);
 
   var $rowDiv = document.createElement('div');
   $rowDiv.className = 'row';
@@ -48,9 +68,17 @@ function renderEntry(entry) {
   $rightHalfDiv.className = 'column-half padding-l-12';
   $rowDiv.appendChild($rightHalfDiv);
 
+  var $titleRow = document.createElement('div');
+  $titleRow.className = 'row space-between align-items-center';
+  $rightHalfDiv.appendChild($titleRow);
+
   var $liTitle = document.createElement('h2');
   $liTitle.textContent = entry.title;
-  $rightHalfDiv.appendChild($liTitle);
+  $titleRow.appendChild($liTitle);
+
+  var $faPencil = document.createElement('i');
+  $faPencil.className = 'fa-solid fa-pen fa-lg';
+  $titleRow.appendChild($faPencil);
 
   var $liNotes = document.createElement('p');
   $liNotes.textContent = entry.notes;
@@ -101,5 +129,23 @@ $body.addEventListener('click', function (event) {
     viewSwap('entries');
   } else if (event.target === $newButton) {
     viewSwap('entry-form');
+  }
+});
+
+$ul.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+    var liId = event.target.closest('li').getAttribute('id') * 1;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === liId) {
+        data.editing = data.entries[i];
+      }
+    }
+    $img.setAttribute('src', data.editing.photoUrl);
+    $photoUrl.value = data.editing.photoUrl;
+    $title.value = data.editing.title;
+    $notes.value = data.editing.notes;
+
+    $h1.textContent = 'Edit Entry';
   }
 });
