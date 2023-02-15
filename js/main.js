@@ -40,6 +40,7 @@ $form.addEventListener('submit', function (e) {
     $originalLi.replaceWith(editedObj);
 
     $h1.textContent = 'New Entry';
+    data.editing = null;
   }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
