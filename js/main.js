@@ -23,8 +23,6 @@ $form.addEventListener('submit', function (e) {
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.unshift(formObj);
-    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-    $form.reset();
 
     var newEntry = renderEntry(formObj);
     $ul.prepend(newEntry);
@@ -40,7 +38,11 @@ $form.addEventListener('submit', function (e) {
     var $originalLi = document.getElementById(data.editing.entryId);
 
     $originalLi.replaceWith(editedObj);
+
+    $h1.textContent = 'New Entry';
   }
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
   viewSwap('entries');
   toggleNoEntries();
 });
