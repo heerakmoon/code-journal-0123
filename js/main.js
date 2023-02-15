@@ -28,8 +28,6 @@ $form.addEventListener('submit', function (e) {
 
     var newEntry = renderEntry(formObj);
     $ul.prepend(newEntry);
-    viewSwap('entries');
-    toggleNoEntries();
 
   } else if (data.editing !== null) {
     formObj.entryId = data.editing.entryId;
@@ -38,8 +36,13 @@ $form.addEventListener('submit', function (e) {
         data.entries[i] = formObj;
       }
     }
+    var editedObj = renderEntry(formObj);
+    var $originalLi = document.getElementById(data.editing.entryId);
 
+    $originalLi.replaceWith(editedObj);
   }
+  viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
