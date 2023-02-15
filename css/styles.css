@@ -64,6 +64,10 @@ a:hover {
   cursor: pointer;
 }
 
+i {
+  color: rgb(86, 43, 129);
+}
+
 .white-open-sans {
   color: white;
   font-family: "Open Sans", sans-serif;

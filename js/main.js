@@ -48,9 +48,17 @@ function renderEntry(entry) {
   $rightHalfDiv.className = 'column-half padding-l-12';
   $rowDiv.appendChild($rightHalfDiv);
 
+  var $titleRow = document.createElement('div');
+  $titleRow.className = 'row space-between align-items-center';
+  $rightHalfDiv.appendChild($titleRow);
+
   var $liTitle = document.createElement('h2');
   $liTitle.textContent = entry.title;
-  $rightHalfDiv.appendChild($liTitle);
+  $titleRow.appendChild($liTitle);
+
+  var $faPencil = document.createElement('i');
+  $faPencil.className = 'fa-solid fa-pen fa-lg';
+  $titleRow.appendChild($faPencil);
 
   var $liNotes = document.createElement('p');
   $liNotes.textContent = entry.notes;
