@@ -31,6 +31,7 @@ $form.addEventListener('submit', function (e) {
 
 function renderEntry(entry) {
   var $li = document.createElement('li');
+  $li.setAttribute('id', entry.entryId);
 
   var $rowDiv = document.createElement('div');
   $rowDiv.className = 'row';
