@@ -5,6 +5,7 @@ var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var $ul = document.querySelector('ul');
 var $body = document.querySelector('body');
+var $h1 = document.querySelector('h1');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -116,12 +117,19 @@ $body.addEventListener('click', function (event) {
 $ul.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
-    var liId = event.target.parentNode.getAttribute('id') * 1;
+    // debugger;
+    var liId = event.target.closest('li').getAttribute('id') * 1;
     for (var i = 0; i < data.entries.length; i++) {
-      if (data.entries[i.entryId] === liId) {
+      if (data.entries[i].entryId === liId) {
         data.editing = data.entries[i];
       }
     }
+    $img.setAttribute('src', data.editing.photoUrl);
+    $photoUrl.value = data.editing.photoUrl;
+    $title.value = data.editing.title;
+    $notes.value = data.editing.notes;
+
+    $h1.textContent = 'Edit Entry';
   }
 
 });
