@@ -155,3 +155,9 @@ $ul.addEventListener('click', function (event) {
     $delete.className = '';
   }
 });
+
+// $form.addEventListener('click', function (event) {
+//   if (event.target === $delete) {
+
+//   }
+// })
