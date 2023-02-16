@@ -51,7 +51,7 @@ ul {
 }
 
 p {
-  margin: 20px 0;
+  margin: 0 0 25px;
 }
 
 a {
@@ -103,7 +103,7 @@ i:hover {
 }
 
 .button-right {
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .align-items-center {
@@ -118,9 +118,20 @@ i:hover {
   justify-content: space-between;
 }
 
+.delete-button {
+  background-color: rgb(240, 240, 240);
+  color: red;
+  text-decoration: underline;
+  padding: 0;
+}
+
 @media screen and (min-width: 768px) {
   h2 {
     margin: 0;
+  }
+
+  p {
+    margin: 20px 0;
   }
 
   li {

@@ -6,6 +6,8 @@ var $notes = document.querySelector('#notes');
 var $ul = document.querySelector('ul');
 var $body = document.querySelector('body');
 var $h1 = document.querySelector('h1');
+var $delete = document.querySelector('#delete');
+var $buttonRow = document.querySelector('#button-row');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -40,6 +42,8 @@ $form.addEventListener('submit', function (e) {
     $originalLi.replaceWith(editedObj);
 
     $h1.textContent = 'New Entry';
+    $buttonRow.className = 'margin-20 align-items-center row button-right';
+    $delete.className = 'hidden';
     data.editing = null;
   }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -147,5 +151,7 @@ $ul.addEventListener('click', function (event) {
     $notes.value = data.editing.notes;
 
     $h1.textContent = 'Edit Entry';
+    $buttonRow.className += ' space-between';
+    $delete.className = '';
   }
 });
