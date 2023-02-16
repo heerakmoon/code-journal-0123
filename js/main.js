@@ -8,6 +8,7 @@ var $body = document.querySelector('body');
 var $h1 = document.querySelector('h1');
 var $delete = document.querySelector('#delete');
 var $buttonRow = document.querySelector('#button-row');
+var $modal = document.querySelector('#modal');
 
 $photoUrl.addEventListener('input', function (e) {
   $img.setAttribute('src', $photoUrl.value);
@@ -156,8 +157,8 @@ $ul.addEventListener('click', function (event) {
   }
 });
 
-// $form.addEventListener('click', function (event) {
-//   if (event.target === $delete) {
+var $deleteEntryButton = document.querySelector('.delete-button');
 
-//   }
-// })
+$deleteEntryButton.addEventListener('click', function (event) {
+  $modal.className = '';
+});
