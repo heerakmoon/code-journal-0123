@@ -160,5 +160,12 @@ $ul.addEventListener('click', function (event) {
 var $deleteEntryButton = document.querySelector('.delete-button');
 
 $deleteEntryButton.addEventListener('click', function (event) {
+  event.preventDefault();
   $modal.className = '';
+});
+
+var $cancelButton = document.querySelector('#cancel-button');
+
+$cancelButton.addEventListener('click', function (event) {
+  $modal.className = 'hidden';
 });
