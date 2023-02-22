@@ -166,25 +166,24 @@ $deleteEntryButton.addEventListener('click', function (event) {
 var $cancelButton = document.querySelector('#cancel-button');
 
 $cancelButton.addEventListener('click', function (event) {
-  event.preventDefault();
   $modal.className = 'hidden';
 });
 
-// var $confirmButton = document.querySelector('#confirm-button');
+var $confirmButton = document.querySelector('#confirm-button');
 // var $liList = document.querySelectorAll('li');
 
-// $confirmButton.addEventListener('click', function (event) {
-//   console.log(data.editing);
-//   console.log($liList);
-//   for (var i = 0; i < data.entries.length; i++) {
-//     if (data.editing.entryId === data.entries[i].entryId) {
-//       console.log(data.editing.entryId);
-//       console.log(data.entries[i]);
-//       data.entries.splice(i, 1);
-//     }
-//   }
-//   // event.target.remove();
-//   toggleNoEntries();
-//   $modal.className = 'hidden';
-//   viewSwap('entries');
-// });
+$confirmButton.addEventListener('click', function (event) {
+  var liIdNum = 0;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      liIdNum += data.entries[i].entryId;
+      data.entries.splice(i, 1);
+    }
+  }
+  var removeLi = document.getElementById(liIdNum);
+  removeLi.remove();
+  data.editing = null;
+  toggleNoEntries();
+  $modal.className = 'hidden';
+  viewSwap('entries');
+});
