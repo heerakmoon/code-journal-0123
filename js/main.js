@@ -170,7 +170,6 @@ $cancelButton.addEventListener('click', function (event) {
 });
 
 var $confirmButton = document.querySelector('#confirm-button');
-// var $liList = document.querySelectorAll('li');
 
 $confirmButton.addEventListener('click', function (event) {
   var liIdNum = 0;
