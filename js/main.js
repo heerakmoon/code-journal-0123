@@ -181,8 +181,11 @@ $confirmButton.addEventListener('click', function (event) {
   }
   var removeLi = document.getElementById(liIdNum);
   removeLi.remove();
-  data.editing = null;
+  $form.reset();
+  $h1.textContent = 'New Entry';
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   toggleNoEntries();
   $modal.className = 'hidden';
   viewSwap('entries');
+  data.editing = null;
 });
