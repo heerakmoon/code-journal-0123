@@ -188,4 +188,5 @@ $confirmButton.addEventListener('click', function (event) {
   $modal.className = 'hidden';
   viewSwap('entries');
   data.editing = null;
+  data.nextEntryId--;
 });
